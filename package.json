@@ -1,0 +1,31 @@
+{
+  "name": "pug_sass",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:pug": "pug --watch src/pages/* -o dist",
+    "build:pug": "pug src/pages/* -o dist",
+    "watch:sass": "sass --watch src/styles/main.sass dist/style.css",
+    "build:sass": "sass src/styles/main.sass dist/style.css",
+    "build:favicons": "cp -r src/assets/favicons/* dist",
+    "build:images": "cp -r src/assets/images/* dist/assets/images",
+    "dev": "npm-run-all watch:pug watch:sass build:favicons build:images",
+    "build": "npm-run-all build:pug build:sass build:favicons build:images"
+  },
+  "keywords": ["pug", "sass"],
+  "author": "Andrzej Legutko <andrzejlegutko@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "4.19.2",
+    "nodemon": "3.1.4",
+    "npm-run-all": "^4.1.5",
+    "path": "0.12.7",
+    "pug": "3.0.3",
+    "pug-cli": "1.0.0-alpha6",
+    "sass": "1.77.8",
+    "scss-reset": "1.4.2"
+  }
+}
