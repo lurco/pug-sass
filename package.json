@@ -5,18 +5,17 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js",
+    "serve": "browser-sync start --proxy 'localhost:3000' --files 'dist/**/*' --port 3001",
     "watch:pug": "pug --watch src/pages/* -o dist",
-    "build:pug": "pug src/pages/* -o dist",
     "watch:sass": "sass --watch src/styles/main.sass dist/style.css",
+    "watch": "npm-run-all --parallel watch:pug watch:sass build:favicons build:images",
+    "build:pug": "pug src/pages/* -o dist",
     "build:sass": "sass src/styles/main.sass dist/style.css",
     "build:favicons": "cp -r src/assets/favicons/* dist",
     "build:images": "cp -r src/assets/images/* dist/assets/images",
-    "watch": "npm-run-all watch:pug watch:sass build:favicons build:images",
-    "start": "nodemon server/server.js",
-    "serve": "browser-sync start --proxy 'localhost:3000' --files 'dist/**/*' --port 3001",
-    "dev": "npm-run-all --parallel start serve watch",
-    "build": "npm-run-all build:pug build:sass build:favicons build:images"
+    "build": "npm-run-all build:pug build:sass build:favicons build:images",
+    "dev": "npm-run-all --parallel start serve watch:pug watch:sass build:favicons build:images"
   },
   "keywords": [
     "pug",

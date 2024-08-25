@@ -1,2 +1,29 @@
+@use 'constants'
+@use 'functions'
+
 body
-  background-color: beige
+  background-color: constants.$primary-color
+  .header--container,
+  .content--container,
+  .footer--container
+    max-width: functions.pxToRem(800)
+    margin-inline: auto
+    display: flex
+    justify-content: space-between
+    align-items: center
+  a
+    text-decoration: none
+    color: constants.$secondary-color
+
+
+.logo
+  width: functions.pxToRem(60)
+
+.navbar
+  display: flex
+  width: 100%
+  max-width: functions.pxToRem(200)
+  justify-content: space-between
+  align-items: center
+
+

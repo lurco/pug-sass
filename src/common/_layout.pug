@@ -12,12 +12,22 @@ html(lang='en')
 
         meta(name='apple-mobile-web-app-capable', content='yes')
         meta(name='apple-mobile-web-app-status-bar-style', content='black')
-        meta(name="msapplication-TileColor", content='#000000')
+        meta(name="msapplication-TileColor", content='#F3EEE5')
 
         link(rel='stylesheet', href='style.css')
         block title
-            title='A simple Pug template'
+            title='A simple Pug/SASS template with HMR'
     body
-        block content
+        block header
+            .header--container
+                img.logo(src='assets/images/logo.png' alt='PUG and SASS logo')
+                .navbar
+                    a.navbar--navbar-item(href='index.html') Home
+                    a.navbar--navbar-item(href='about.html') About
+                    a.navbar--navbar-item(href='Contact.html') Contact
+        main
+            .content--container
+                block content
         footer
-            p Copyright © 2024
+            .footer--container
+                p Copyright © 2024
