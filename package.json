@@ -12,13 +12,20 @@
     "build:sass": "sass src/styles/main.sass dist/style.css",
     "build:favicons": "cp -r src/assets/favicons/* dist",
     "build:images": "cp -r src/assets/images/* dist/assets/images",
-    "dev": "npm-run-all watch:pug watch:sass build:favicons build:images",
+    "watch": "npm-run-all watch:pug watch:sass build:favicons build:images",
+    "start": "nodemon server/server.js",
+    "serve": "browser-sync start --proxy 'localhost:3000' --files 'dist/**/*' --port 3001",
+    "dev": "npm-run-all --parallel start serve watch",
     "build": "npm-run-all build:pug build:sass build:favicons build:images"
   },
-  "keywords": ["pug", "sass"],
+  "keywords": [
+    "pug",
+    "sass"
+  ],
   "author": "Andrzej Legutko <andrzejlegutko@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^3.0.2",
     "express": "4.19.2",
     "nodemon": "3.1.4",
     "npm-run-all": "^4.1.5",
